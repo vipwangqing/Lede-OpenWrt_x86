@@ -6,11 +6,11 @@
 #
 
 # 修改openwrt登陆地址,把下面的192.168.2.2修改成你想要的就可以了
-sed -i 's/192.168.1.1/192.168.2.2/g' ./package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/10.10.10.252/g' ./package/base-files/files/bin/config_generate
 
 
 # 修改主机名字，把OpenWrt-123修改你喜欢的就行（不能纯数字或者使用中文）
-sed -i 's/OpenWrt/OpenWrt-123/g' ./package/base-files/files/bin/config_generate
+sed -i 's/OpenWrt/OpenWrt/g' ./package/base-files/files/bin/config_generate
 
 
 # 设置密码为空（安装固件时无需密码登陆，然后自己修改想要的密码）
@@ -32,6 +32,7 @@ rm -rf ./package/base-files/files/etc/banne && cd .. && cp -f ./banner openwrt/p
 
 
 #添加自定义插件链接（自己想要什么就github里面搜索然后添加）
+git clone https://github.com/kongfl888/luci-app-adguardhome.git package/lean/luci-app-adguardhome  #adguard home
 git clone -b 18.06 https://github.com/garypang13/luci-theme-edge.git package/lean/luci-theme-edge  #主题-edge-动态登陆界面
 git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom.git package/lean/luci-theme-infinityfreedom  #透明主题
 git clone -b master https://github.com/vernesong/OpenClash.git package/lean/luci-app-openclash  #openclash出国软件
